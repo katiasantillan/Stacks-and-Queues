@@ -1,0 +1,29 @@
+def isBalanced(s):
+    dic = { '{':'}', '(':')', '[':']'}
+
+    flag, i, pila = 0,0,[]
+
+    while(i<len(s)):
+
+        if(s[i] in dic):
+            pila.append(s[i])    
+        else:
+            if(len(pila)>=1):
+                if s[i] == dic[pila[-1]]:
+                    pila.pop()
+                else:
+                    flag=1
+                    break
+            else:
+                flag=1
+                break
+        i+=1
+
+
+    if(flag == 0 and len(pila)==0):
+        return("YES")
+    else:
+        return("NO")
+
+            
+       
